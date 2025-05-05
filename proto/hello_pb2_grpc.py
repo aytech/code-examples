@@ -39,6 +39,21 @@ class HelloStub(object):
                 request_serializer=proto_dot_hello__pb2.HelloRequest.SerializeToString,
                 response_deserializer=proto_dot_hello__pb2.HelloResponse.FromString,
                 _registered_method=True)
+        self.SayHelloResponseStream = channel.unary_stream(
+                '/Hello/SayHelloResponseStream',
+                request_serializer=proto_dot_hello__pb2.HelloRequest.SerializeToString,
+                response_deserializer=proto_dot_hello__pb2.HelloResponse.FromString,
+                _registered_method=True)
+        self.SayHelloRequestStream = channel.stream_unary(
+                '/Hello/SayHelloRequestStream',
+                request_serializer=proto_dot_hello__pb2.HelloRequest.SerializeToString,
+                response_deserializer=proto_dot_hello__pb2.HelloResponse.FromString,
+                _registered_method=True)
+        self.SayHelloBidirectionalStream = channel.stream_stream(
+                '/Hello/SayHelloBidirectionalStream',
+                request_serializer=proto_dot_hello__pb2.HelloRequest.SerializeToString,
+                response_deserializer=proto_dot_hello__pb2.HelloResponse.FromString,
+                _registered_method=True)
 
 
 class HelloServicer(object):
@@ -50,11 +65,44 @@ class HelloServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SayHelloResponseStream(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SayHelloRequestStream(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SayHelloBidirectionalStream(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_HelloServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SayHello': grpc.unary_unary_rpc_method_handler(
                     servicer.SayHello,
+                    request_deserializer=proto_dot_hello__pb2.HelloRequest.FromString,
+                    response_serializer=proto_dot_hello__pb2.HelloResponse.SerializeToString,
+            ),
+            'SayHelloResponseStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.SayHelloResponseStream,
+                    request_deserializer=proto_dot_hello__pb2.HelloRequest.FromString,
+                    response_serializer=proto_dot_hello__pb2.HelloResponse.SerializeToString,
+            ),
+            'SayHelloRequestStream': grpc.stream_unary_rpc_method_handler(
+                    servicer.SayHelloRequestStream,
+                    request_deserializer=proto_dot_hello__pb2.HelloRequest.FromString,
+                    response_serializer=proto_dot_hello__pb2.HelloResponse.SerializeToString,
+            ),
+            'SayHelloBidirectionalStream': grpc.stream_stream_rpc_method_handler(
+                    servicer.SayHelloBidirectionalStream,
                     request_deserializer=proto_dot_hello__pb2.HelloRequest.FromString,
                     response_serializer=proto_dot_hello__pb2.HelloResponse.SerializeToString,
             ),
@@ -84,6 +132,87 @@ class Hello(object):
             request,
             target,
             '/Hello/SayHello',
+            proto_dot_hello__pb2.HelloRequest.SerializeToString,
+            proto_dot_hello__pb2.HelloResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SayHelloResponseStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/Hello/SayHelloResponseStream',
+            proto_dot_hello__pb2.HelloRequest.SerializeToString,
+            proto_dot_hello__pb2.HelloResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SayHelloRequestStream(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/Hello/SayHelloRequestStream',
+            proto_dot_hello__pb2.HelloRequest.SerializeToString,
+            proto_dot_hello__pb2.HelloResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SayHelloBidirectionalStream(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/Hello/SayHelloBidirectionalStream',
             proto_dot_hello__pb2.HelloRequest.SerializeToString,
             proto_dot_hello__pb2.HelloResponse.FromString,
             options,

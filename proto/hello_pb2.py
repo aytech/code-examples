@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11proto/hello.proto\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"*\n\rHelloResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x61ge\x18\x02 \x01(\x05\x32\x32\n\x05Hello\x12)\n\x08SayHello\x12\r.HelloRequest\x1a\x0e.HelloResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11proto/hello.proto\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"*\n\rHelloResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x61ge\x18\x02 \x01(\x05\x32\xe9\x01\n\x05Hello\x12)\n\x08SayHello\x12\r.HelloRequest\x1a\x0e.HelloResponse\x12\x39\n\x16SayHelloResponseStream\x12\r.HelloRequest\x1a\x0e.HelloResponse0\x01\x12\x38\n\x15SayHelloRequestStream\x12\r.HelloRequest\x1a\x0e.HelloResponse(\x01\x12@\n\x1bSayHelloBidirectionalStream\x12\r.HelloRequest\x1a\x0e.HelloResponse(\x01\x30\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_HELLOREQUEST']._serialized_end=49
   _globals['_HELLORESPONSE']._serialized_start=51
   _globals['_HELLORESPONSE']._serialized_end=93
-  _globals['_HELLO']._serialized_start=95
-  _globals['_HELLO']._serialized_end=145
+  _globals['_HELLO']._serialized_start=96
+  _globals['_HELLO']._serialized_end=329
 # @@protoc_insertion_point(module_scope)
